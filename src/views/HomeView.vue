@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import Modal from '@/components/Modal.vue'
+import Modal from '@/components/EmailForm.vue'
 
 export default {
   name: 'MainPage',
