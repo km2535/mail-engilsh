@@ -11,20 +11,19 @@
           매일 아침, 영어와 한국어로 정리된 기술 용어를 이메일로 받아보세요. <br />
           개발 역량을 강화하고 글로벌 커뮤니케이션 스킬을 향상시킬 수 있습니다.
         </p>
-        <button class="subscribe-button" @click="subscribe">📩 구독하기</button>
+        <Modal />
       </div>
     </main>
   </div>
 </template>
 
 <script lang="ts">
+import Modal from '@/components/Modal.vue'
+
 export default {
   name: 'MainPage',
-  methods: {
-    subscribe() {
-      alert('구독 신청 페이지로 이동합니다!')
-      // 실제 구독 페이지로 라우팅 로직 추가 필요
-    },
+  components: {
+    Modal,
   },
 }
 </script>
@@ -86,26 +85,6 @@ export default {
   line-height: 1.8;
   color: #333;
   margin-bottom: 20px;
-}
-
-/* 구독 버튼 */
-.subscribe-button {
-  padding: 15px 40px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  background-color: #006d5b;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.subscribe-button:hover {
-  background-color: #004d43;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* 애니메이션 */
