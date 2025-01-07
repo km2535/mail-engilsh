@@ -13,6 +13,12 @@
         <div class="modal-body">
           <p>최신 기술 용어를 매일 이메일로 받아보세요!</p>
           <form @submit.prevent="subscribe">
+            <select v-model="tech">
+              <option value="BACKEND" selected>백엔드</option>
+              <option value="FRONTEND">프론트엔드</option>
+              <option value="FULLSTACK">풀스택</option>
+              <option value="INFRA">인프라</option>
+            </select>
             <input
               type="email"
               v-model="email"
@@ -29,17 +35,31 @@
 </template>
 
 <script lang="ts">
+import subscribeApi from '@/api/modules/subscribeApi.ts'
+import type { SubscribeRequest, SubscribeResponse } from '@/api/type/Subscribe.ts'
+
 export default {
   data() {
     return {
       isModalOpen: false, // 모달 열림 상태
       email: '', // 사용자 이메일
+      tech: 'BACKEND',
     }
   },
   methods: {
-    subscribe() {
+    async subscribe() {
       if (this.email) {
-        alert(`구독이 완료되었습니다: ${this.email}`)
+        const data: SubscribeRequest = {
+          email: this.email,
+          tech: this.tech,
+        }
+        await subscribeApi.subscribeContents<SubscribeResponse>(data).then((res) => {
+          if (res.result == 'FAIL') {
+            alert(`구독 실패 :  ${res.errorMessageForClient}`)
+            return res.errorMessageForClient
+          }
+          alert(`구독이 완료되었습니다: ${this.email} ${this.tech}`)
+        })
         //이메일로 구독하는 API
         this.email = '' // 입력 필드 초기화
         this.isModalOpen = false // 모달 닫기

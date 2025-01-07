@@ -1,7 +1,6 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
     width: 100%;
   font-weight: normal;
     background: linear-gradient(to bottom, #e0f9f5, #c4fcef);
