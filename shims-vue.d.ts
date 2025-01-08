@@ -1,7 +1,9 @@
-import axios from 'axios'
+// src/shims-vue.d.ts
+import { RouteLocationNormalized } from 'vue-router'
 
-declare module '@vue/runtime-core' {
+// Extend the Vue component instance with `$route` and `$router`
+declare module 'vue' {
   interface ComponentCustomProperties {
-    $axios: typeof axios
+    $route: RouteLocationNormalized
   }
 }

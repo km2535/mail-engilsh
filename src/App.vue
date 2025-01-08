@@ -15,6 +15,10 @@ import Footer from '@/components/FooterBoot.vue'
 </template>
 
 <style scoped>
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
 .nav {
   display: block;
   width: 100%;

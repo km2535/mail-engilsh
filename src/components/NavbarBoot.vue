@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <!-- 로고 -->
-      <a href="#" class="logo">🌟 Tech Vocab</a>
+      <a href="/" class="logo">🌟 Tech Vocab</a>
 
       <!-- 네비게이션 메뉴 -->
       <ul class="nav-menu">
@@ -20,19 +20,21 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   computed: {
-    // 현재 경로 가져오기
-    currentPath() {
+    // 현재 경로 가져오기 (반환 타입 명시)
+    currentPath(): string {
       return this.$route.path
     },
   },
   methods: {
-    isActive(path: string) {
+    isActive(path: string): boolean {
       return this.currentPath === path
     },
   },
-}
+})
 </script>
 
 <style scoped>
