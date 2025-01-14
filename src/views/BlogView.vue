@@ -1,18 +1,19 @@
 <template>
-  <v-row gap="4">
-    <v-col>
-      <CardItem :data="backend" />
-    </v-col>
-    <v-col>
-      <CardItem :data="frontend" />
-    </v-col>
-    <v-col>
-      <CardItem :data="infra" />
-    </v-col>
-    <v-col>
-      <CardItem :data="fullstack" />
-    </v-col>
-  </v-row>
+    <v-row gap="4">
+      <v-col>
+        <CardItem :data="backend" />
+      </v-col>
+      <v-col>
+        <CardItem :data="frontend" />
+      </v-col>
+      <v-col>
+        <CardItem :data="infra" />
+      </v-col>
+      <v-col>
+        <CardItem :data="fullstack" />
+      </v-col>
+    </v-row>
+  <RouterView/>
 </template>
 
 <script lang="ts">
